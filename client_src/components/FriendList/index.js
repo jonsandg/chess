@@ -11,13 +11,13 @@ class FriendList extends React.Component {
       <div>
         <h5>Friends</h5>
         <ListGroup>
-          {this.props.friends.map(this.renderFriend)}
+          {this.props.friends.map(val => this.renderFriend(val, (user) => this.props.openChat(user)))}
         </ListGroup>
       </div>
     );
   }
   
-  renderFriend(user) {
+  renderFriend(user, click) {
     
     return (
       <ListGroupItem key={user.name}>
@@ -26,7 +26,7 @@ class FriendList extends React.Component {
             <Link to={`/profile/${user.name}`}>{user.name}</Link>
           </Col>
           <Col xs={5}>
-            <Button bsSize="small" bsStyle="primary" onClick={() => this.props.openChat(user.name)}>
+            <Button bsSize="small" bsStyle="primary" onClick={() => click(user.name)}>
             Chat
             </Button>
           </Col>
