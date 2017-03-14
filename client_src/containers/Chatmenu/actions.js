@@ -105,6 +105,7 @@ export const getPrivateChat = (tree, user) => {
             messages: json
           });
         }
+        console.log(privChats.get());
       });
     }
   })
