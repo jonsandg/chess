@@ -97,12 +97,12 @@ export const getPrivateChat = (tree, user) => {
         if(index < 0) {
           privChats.push({
             name: user,
-            messages: response
+            messages: json 
           });
         } else {
           privChats.set(index, {
             name: user,
-            messages: response
+            messages: json
           });
         }
       });
