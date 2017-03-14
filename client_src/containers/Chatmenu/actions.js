@@ -81,7 +81,7 @@ export const getGameChat = (tree, id) => {
 export const getPrivateChat = (tree, user) => {
   
   
-  console.log('getting chat');
+  console.log('getting priv chat');
   
   const privChats = tree.select('chat', 'chats', 'privates');
   
@@ -105,7 +105,6 @@ export const getPrivateChat = (tree, user) => {
             messages: response
           });
         }
-        gameChat.set('messages', json);
       });
     }
   })
