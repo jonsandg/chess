@@ -31,6 +31,7 @@ export const getGame = (tree, id) => {
         game.set('captured', response.captured);
         game.set('message', response.message);
         game.set('isWhite', isWhite);
+        game.set('isPlayer', isPlayer);
         game.set('white', response.white);
         game.set('black', response.black);
         game.set('view', 'game');
