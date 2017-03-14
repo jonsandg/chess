@@ -22,7 +22,7 @@ const connect = () => {
   
   socket.on('game', data => {
     const game = tree.select('game');
-    if(data.gameID !== game.get('id'))
+    if(data.gameID !== game.get('id')) //only update if the update is about the game we're watching
       return;
     
     const user = tree.get(['user', 'name']);
@@ -63,13 +63,17 @@ const connect = () => {
       default: //PM
         const privates = chat.get(['chats', 'privates']);
         const index = getIndexOfPrivate(privates, data.from);
-        if (index < 0) {
+        if (index < 0) { //om inte finns i listan
           getPrivateChat(tree, data.from)
           .then(() => {
             tree.unshift(['chat', 'chats', 'privates', privates.length, 'messages'], data);
+            chat.apply('chats', 'privates', privates.length, 'new', increase);
           });
         } else {
           tree.unshift(['chat', 'chats', 'privates', index, 'messages'], data);
+          if(chat.get('viewing') !== data.from) {
+            chat.apply('chats', 'privates', index, 'new', increase);
+          }
         }
     }
     

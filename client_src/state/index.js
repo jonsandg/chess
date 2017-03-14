@@ -60,7 +60,7 @@ const tree = new Baobab({
   game: {
     id: null,
     view: 'loading',
-    isPlayer: true,
+    isPlayer: false,
     isWhiteTurn: false,
     isWhite: true,
     white: null,
@@ -90,7 +90,7 @@ pgn.on('update', e => {
   if(pgn) 
     chess.load_pgn(pgn);
   
-  const turn = chess.fen().split(' ').pop();
+  const turn = chess.fen().split(' ').pop(); //sista siffran i FEN notationen = turn
   const isWhiteTurn = chess.turn() === 'w';
   
   console.log(chess.turn());

@@ -128,7 +128,7 @@ class Chatmenu extends React.Component {
       if(this.props.privateChats[i].name === viewing)
         return this.props.privateChats[i].messages.map(this.renderMessage);
     }
-
+this.props.viewing
           
   }
   

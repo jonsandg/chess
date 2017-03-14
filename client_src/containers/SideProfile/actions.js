@@ -1,4 +1,5 @@
 import { browserHistory } from 'react-router';
+import {getPrivateChat, getIndexOfPrivate} from 'containers/Chatmenu/actions';
 
 export const acceptFriend = (tree, username) => {
   
@@ -128,6 +129,22 @@ export const createGame = () => {
     }
   });
 };
+
+export const openChat = (tree, user) => {
+  
+  const chat = tree.select('chat');
+  const privates = chat.get('chats', 'privates');
+  
+  if(getIndexOfPrivate(privates, user) < 0) {
+    getPrivateChat(tree, user)
+    .then(() => {
+      chat.set('viewing', user);
+    })
+  } else {
+    chat.set('viewing', user);
+  }
+  
+}
 
 
 

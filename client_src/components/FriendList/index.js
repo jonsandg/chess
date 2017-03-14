@@ -1,4 +1,4 @@
-import React from 'react';
+ import React from 'react';
 
 import { Panel, Button, Row, Col, Label, ListGroup, ListGroupItem } from 'react-bootstrap';
 import { Link } from 'react-router';
@@ -26,6 +26,9 @@ class FriendList extends React.Component {
             <Link to={`/profile/${user.name}`}>{user.name}</Link>
           </Col>
           <Col xs={5}>
+            <Button bsSize="small" bsStyle="primary" onClick={() => this.props.openChat(user.name)}>
+            {user.name}
+            </Button>
           </Col>
           
         </Row>

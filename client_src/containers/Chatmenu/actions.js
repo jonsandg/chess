@@ -3,11 +3,11 @@ export const viewChat = (tree, chat) => {
   
   tree.set(['chat', 'viewing'], chat);
   if(chat === 'general' || chat === 'game') {
-    return tree.set(['chat', 'chats', chat, 'new'], 0);
+    return tree.set(['chat', 'chats', chat, 'new'], 0); //reset new messages
   }
   const privates = tree.get(['chat', 'chats', 'privates']);
   const index = getIndexOfPrivate(privates, chat);
-  return tree.set(['chat', 'chats', 'privates', index, 'new'], 0);
+  return tree.set(['chat', 'chats', 'privates', index, 'new'], 0);//reset new messages
 };
 
 export const closeChat = (tree, chat) => {
@@ -119,6 +119,7 @@ export const getPrivateChat = (tree, user) => {
   
 };
 
+//hittar chattens position i chatlistan
 export const getIndexOfPrivate = (privates, chat) => {
 
   for(var i = 0; i < privates.length; i++) {

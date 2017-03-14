@@ -54,7 +54,7 @@ module.exports = {
       state: path.resolve(__dirname, 'client_src/state'),
       socketHandler: path.resolve(__dirname, 'client_src/socketHandler'),
       chessHandler: path.resolve(__dirname, 'chessHandler/'),
-      'chess.js': path.resolve(__dirname, 'chesslib')
+      'chess.js': path.resolve(__dirname, 'chess.min.js')
     }
   }
 };

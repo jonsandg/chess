@@ -25,7 +25,6 @@ export const getGame = (tree, id) => {
         const isPlayer = user && (user === response.white || user === response.black);
         const isWhite = !isPlayer || user === response.white; //see as white if not player
         
-        //game.set('board', chess.board());
         
         game.set('captured', response.captured);
         game.set('message', response.message);
@@ -82,11 +81,11 @@ export const click = (tree, i, j) => {
     return;
   }
   
-  if(board[i][j] === null) 
+  if(board[i][j] === null) //klick på tom ruta (som ej är möjlig förflyttelse)
     return resetPossibleMoves();
   
   
-  if((board[i][j].color === 'b' && isWhite) || (board[i][j].color === 'w' && !isWhite))
+  if((board[i][j].color === 'b' && isWhite) || (board[i][j].color === 'w' && !isWhite)) //klick på motståndarens pjäser (ej möjlig attack)
     return resetPossibleMoves();
   
   findLegalMoves(game, i, j);

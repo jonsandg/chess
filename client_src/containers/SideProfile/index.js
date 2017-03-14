@@ -61,9 +61,17 @@ class SideProfile extends React.Component {
             </FormGroup>
         </Row>
         <Row>
-          <FriendList friends={this.props.friends}/>
+          <FriendList friends={this.props.friends}
+                      openChat={(user) => this.openChat(user)}/>
         </Row>
       </div>
+    );
+  }
+  
+  openChat(user) {
+    this.props.dispatch(
+      actions.openChat,
+      user
     );
   }
   
