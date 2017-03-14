@@ -49,16 +49,10 @@ const connect = () => {
     switch(data.type) {
       case 'room':
         chat.unshift(['chats', 'general', 'messages'], data);
-        if(chat.get('viewing') !== 'general') {
-          chat.apply('chats', 'general', 'new', increase);
-        }
         break;
       case 'game':
         if(data.to != tree.get(['game', 'id'])) return;
         chat.unshift(['chats', 'game', 'messages'], data);
-        if(chat.get('viewing') !== 'game') {
-          chat.apply('chats', 'game', 'new', increase);
-        }
         break;
       default: //PM
         const privates = chat.get(['chats', 'privates']);
@@ -67,13 +61,9 @@ const connect = () => {
           getPrivateChat(tree, data.from)
           .then(() => {
             tree.unshift(['chat', 'chats', 'privates', privates.length, 'messages'], data);
-            chat.apply('chats', 'privates', privates.length, 'new', increase);
           });
         } else {
           tree.unshift(['chat', 'chats', 'privates', index, 'messages'], data);
-          if(chat.get('viewing') !== data.from) {
-            chat.apply('chats', 'privates', index, 'new', increase);
-          }
         }
     }
     

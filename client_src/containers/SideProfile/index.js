@@ -62,7 +62,7 @@ class SideProfile extends React.Component {
         </Row>
         <Row>
           <FriendList friends={this.props.friends}
-                      openChat={(user) => this.openChat(user)}/>
+                      openChat={(user) => {this.openChat(user)}}/>
         </Row>
       </div>
     );

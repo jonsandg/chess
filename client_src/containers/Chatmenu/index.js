@@ -109,7 +109,6 @@ class Chatmenu extends React.Component {
         <Label bsStyle={this.props.viewing === chat.name ? "primary" : "default"}>
           {isNotPrivate ? "" : (<i onClick={() => this.closeChat(chat.name)} className="fa fa-times" style={{color: 'white'}} />)}
           <span onClick={() => this.viewChat(chat.name)} >{chat.name}</span>
-          {chat.new ? <Badge>{chat.new}</Badge> : "" }
         </Label>
       </div>
     );

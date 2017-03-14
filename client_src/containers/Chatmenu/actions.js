@@ -2,12 +2,6 @@ import {sendMessage} from 'socketHandler';
 export const viewChat = (tree, chat) => {
   
   tree.set(['chat', 'viewing'], chat);
-  if(chat === 'general' || chat === 'game') {
-    return tree.set(['chat', 'chats', chat, 'new'], 0); //reset new messages
-  }
-  const privates = tree.get(['chat', 'chats', 'privates']);
-  const index = getIndexOfPrivate(privates, chat);
-  return tree.set(['chat', 'chats', 'privates', index, 'new'], 0);//reset new messages
 };
 
 export const closeChat = (tree, chat) => {
@@ -86,6 +80,9 @@ export const getGameChat = (tree, id) => {
 
 export const getPrivateChat = (tree, user) => {
   
+  
+  console.log('getting chat');
+  
   const privChats = tree.select('chat', 'chats', 'privates');
   
   return fetch(`/api/messages/users/${user}`, {
@@ -95,17 +92,16 @@ export const getPrivateChat = (tree, user) => {
     if(response.ok) {
       response.json()
       .then(json => {
+        console.log(json);
         const index = getIndexOfPrivate(privChats.get(), user);
         if(index < 0) {
           privChats.push({
             name: user,
-            new: 0,
             messages: response
           });
         } else {
           privChats.set(index, {
             name: user,
-            new: 0,
             messages: response
           });
         }

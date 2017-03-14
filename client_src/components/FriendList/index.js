@@ -27,7 +27,7 @@ class FriendList extends React.Component {
           </Col>
           <Col xs={5}>
             <Button bsSize="small" bsStyle="primary" onClick={() => this.props.openChat(user.name)}>
-            {user.name}
+            Chat
             </Button>
           </Col>
           

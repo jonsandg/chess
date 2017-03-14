@@ -17,37 +17,13 @@ const tree = new Baobab({
     chats: {
       general: {
         name: 'general',
-        new: 0,
         messages: []
       },
       game: {
-        new: 0,
         name: 'game',
         messages: []
       },
-      privates: [
-        {
-          name: 'lal',
-          new: 2,
-          messages: [
-            {from: 'lal', message: 'qweqwe', date: '1'},
-            {from: 'lal', message: 'qwe', date: '2'},
-            {from: 'lalasd', message: 'tjoo', date: '3'},
-            {from: 'lal', message: 'qwe', date: '4'},
-          ]
-        },
-        {
-          name: 'laasdl',
-          new: 2,
-          messages: [
-            {from: 'lal', message: 'ghjghj', date: '1'},
-            {from: 'lal', message: 'ghj', date: '2'},
-            {from: 'lalasd', message: 'tjoo', date: '3'},
-            {from: 'lal', message: 'ghjghj', date: '4'},
-          ]
-        }
-      ]
-        
+      privates: []
       
     }
   },
