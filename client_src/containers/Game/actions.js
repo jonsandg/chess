@@ -22,6 +22,7 @@ export const getGame = (tree, id) => {
         
         joinGameRoom(response.gameID);
 
+        console.log(response.white);
         const isPlayer = user && (user === response.white || user === response.black);
         const isWhite = !isPlayer || user === response.white; //see as white if not player
         
