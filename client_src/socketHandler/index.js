@@ -61,10 +61,10 @@ const connect = () => {
         const privates = chat.get(['chats', 'privates']);
         const index = getIndexOfPrivate(privates, chatuser);
         if (index < 0) { //om inte finns i listan
-          getPrivateChat(tree, chatuser)
-          .then(() => {
+          getPrivateChat(tree, chatuser, () => {
             tree.unshift(['chat', 'chats', 'privates', privates.length, 'messages'], data);
           });
+        
         } else {
           tree.unshift(['chat', 'chats', 'privates', index, 'messages'], data);
         }

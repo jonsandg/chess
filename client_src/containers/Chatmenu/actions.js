@@ -78,7 +78,7 @@ export const getGameChat = (tree, id) => {
   
 };
 
-export const getPrivateChat = (tree, user) => {
+export const getPrivateChat = (tree, user, cb) => {
   
   
   console.log('getting priv chat');
@@ -105,6 +105,8 @@ export const getPrivateChat = (tree, user) => {
             messages: json
           });
         }
+        if(cb)
+          cb();
         console.log(privChats.get());
       });
     }
