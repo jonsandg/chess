@@ -7,7 +7,6 @@ function Header(props) {
       <Link to="/">
         <h1>Chess Game</h1>
       </Link>
-      <h4>Play chess bla bla bla</h4>
     </div>
   );
 }

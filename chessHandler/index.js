@@ -1,6 +1,6 @@
-var Game = require('../schemas/game');
+var Game = require('../server/schemas/game');
 var chessFunctions = require('./helpers');
-var dbHelpers = require('../schemas/helpers');
+var dbHelpers = require('../server/schemas/helpers');
 
 let listener;
 

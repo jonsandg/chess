@@ -1,4 +1,4 @@
-var chessHandler = require('../chessHandler');
+var chessHandler = require('../../chessHandler');
 var chatHandler = require('./chatHandler');
 
 let io;

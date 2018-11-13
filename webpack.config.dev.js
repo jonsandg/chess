@@ -6,17 +6,17 @@ module.exports = {
   devtool: 'cheap-eval-source-map',
   entry: [
     'webpack-dev-server/client?http://localhost:8080',
-    './client_src/index'
+    './client/index'
   ],
   output: {
-    path: path.join(__dirname, 'public'),
+    path: path.join(__dirname, 'server', 'public'),
     filename: 'bundle.js',
     publicPath : '/'
   },
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new HtmlWebpackPlugin({
-      template: './client_src/index.html'
+      template: './client/index.html'
     }),
     new webpack.ProvidePlugin({
       'Promise': 'es6-promise',
@@ -31,7 +31,7 @@ module.exports = {
       test: /\.js$/,
       loaders: ['babel-loader'],
       include: [
-        path.join(__dirname, 'client_src'),
+        path.join(__dirname, 'client'),
         path.join(__dirname, 'chessHandler')
       ]
     }
@@ -49,10 +49,10 @@ module.exports = {
   },
   resolve: {
     alias: {
-      components: path.resolve(__dirname, 'client_src/components/'),
-      containers: path.resolve(__dirname, 'client_src/containers/'),
-      state: path.resolve(__dirname, 'client_src/state'),
-      socketHandler: path.resolve(__dirname, 'client_src/socketHandler'),
+      components: path.resolve(__dirname, 'client/components/'),
+      containers: path.resolve(__dirname, 'client/containers/'),
+      state: path.resolve(__dirname, 'client/state'),
+      socketHandler: path.resolve(__dirname, 'client/socketHandler'),
       chessHandler: path.resolve(__dirname, 'chessHandler/'),
       'chess.js': path.resolve(__dirname, 'chess.min.js')
     }
