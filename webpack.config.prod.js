@@ -7,7 +7,7 @@ module.exports = {
   devtool: 'source-map',
   entry: ['whatwg-fetch', './client/index'],
   output: {
-    path: path.join(__dirname, 'server', 'public'),
+    path: path.join(__dirname, 'server/public'),
     filename: 'bundle.js',
     publicPath : '/'
   },

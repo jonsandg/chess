@@ -9,7 +9,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --config webpack.config.prod.js",
     "dev": "webpack-dev-server --config webpack.config.dev.js --history-api-fallback --host 0.0.0.0",
-    "watch": "webpack --config webpack.config.dev.js --watch"
+    "watch": "webpack --config webpack.config.dev.js --watch",
+    "heroku-postbuild": "npm run build"
   },
   "keywords": [
     "chess",
